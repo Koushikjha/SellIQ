@@ -1,0 +1,15 @@
+target/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+.git
+.gitignore
+eval/
+docs/
+commands.txt
+docker-compose.yml
+README.md
+src/main/resources/application-secrets.yml
+.env
+.env.*

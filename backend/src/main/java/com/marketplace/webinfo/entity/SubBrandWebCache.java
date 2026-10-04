@@ -18,7 +18,7 @@ import java.util.UUID;
 @Table(name = "sub_brand_web_cache")
 @Getter
 @Setter
-public class SubBrandWebCache {
+public class    SubBrandWebCache {
 
     @Id
     @UuidGenerator

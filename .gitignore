@@ -1,8 +1,8 @@
-Seller AI-backend/docs
-Seller AI-backend/src/main/resources/application-secrets.yml
-Seller AI-backend/target/
-Seller AI-backend/.idea
-Seller AI-backend/eval/transcripts/
+backend/docs
+backend/src/main/resources/application-secrets.yml
+backend/target/
+backend/.idea
+backend/eval/transcripts/
 docs/
-Seller AI-backend/commands.txt
+backend/commands.txt
 
