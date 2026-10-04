@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  BACKEND_DIR: "Seller AI-backend"
+  BACKEND_DIR: "backend"
   IMAGE_NAME: seller-ai-backend
 
 jobs:
@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "Seller AI-backend"
+        working-directory: backend
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,10 +31,8 @@ jobs:
           distribution: temurin
           java-version: "21"
           cache: maven
-          cache-dependency-path: "Seller AI-backend/pom.xml"
+          cache-dependency-path: "backend/pom.xml"
 
-      # Uses the "test" profile: in-memory H2, scripted LLM, stub payments.
-      # No database, API keys or secrets needed.
       - name: Run tests
         run: mvn -B test
 
@@ -42,14 +41,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
-          path: "Seller AI-backend/target/surefire-reports"
+          path: "backend/target/surefire-reports"
 
   build-and-push:
     name: Build & Push Docker Image
     needs: test
-    # Only publish images from main, never from pull requests
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
